@@ -1,0 +1,132 @@
+﻿@using DevExtreme.NETCore.Demos.Models.SampleData
+@using Gantt = DevExtreme.NETCore.Demos.Models.Gantt
+
+<div class="widget-container">
+    <div class="options">
+        <div class="caption">Options</div>
+        <div class="option">
+            <span>Scale Type</span>
+            @(Html.DevExtreme().SelectBox()
+            .ID("scaleType")
+            .DataSource(d => d.Array().Data(SampleData.GanttScaleTypes))
+            .Value("months")
+            .OnValueChanged("ganttScaleType_valueChanged")
+        )
+        </div>
+        <div class="option">
+            <span>Title Position</span>
+            @(Html.DevExtreme().SelectBox()
+            .ID("titlePosition")
+            .DataSource(new[]
+            {
+                "inside",
+                "outside",
+                "none"
+            })
+            .Value("outside")
+            .OnValueChanged("ganttTitlePosition_valueChanged")
+        )
+        </div>
+        <div class="option">
+            @(Html.DevExtreme().CheckBox()
+            .Value(true)
+            .Text("Show Resources")
+            .OnValueChanged("ganttShowResources_changed")
+        )
+        </div>
+        <div class="option">
+            @(Html.DevExtreme().CheckBox()
+            .Value(true)
+            .Text("Customize Task Tooltip")
+            .OnValueChanged("ganttShowCustomTaskTooltip_changed")
+        )
+        </div>
+    </div>
+
+    @(Html.DevExtreme().Gantt<Gantt.Task>()
+        .ID("gantt")
+        .TaskTitlePosition(GanttTaskTitlePosition.Outside)
+        .ScaleType(GanttScaleType.Months)
+        .Tasks(t => t
+            .DataSource(ds => ds.Array().Data(SampleData.GanttTasks).Key("ID"))
+            .KeyExpr("ID")
+            .TitleExpr("Title")
+            .ParentIdExpr("ParentId")
+            .StartExpr("Start")
+            .EndExpr("End")
+            .ProgressExpr("Progress")
+        )
+        .Dependencies(d => d
+            .DataSource(ds => ds.Array().Data(SampleData.GanttDependencies).Key("ID"))
+            .KeyExpr("ID")
+            .PredecessorIdExpr("PredecessorId")
+            .SuccessorIdExpr("SuccessorId")
+            .TypeExpr("Type")
+        )
+        .Resources(r => r
+            .DataSource(ds => ds.Array().Data(SampleData.GanttResources).Key("ID"))
+            .KeyExpr("ID")
+            .TextExpr("Text")
+        )
+        .ResourceAssignments(ra => ra
+            .DataSource(ds => ds.Array().Data(SampleData.GanttResourceAssignments).Key("ID"))
+            .KeyExpr("ID")
+            .TaskIdExpr("TaskId")
+            .ResourceIdExpr("ResourceId")
+        )
+        .Editing(e => e.Enabled(true))
+        .Columns(columns => {
+            columns.AddFor(m => m.Title)
+                .Caption("Subject")
+                .Width(300);
+            columns.AddFor(m => m.Start)
+                .Caption("Start Date");
+            columns.AddFor(m => m.End)
+                .Caption("End Date");
+        })
+        .TaskListWidth(500)
+        .TaskTooltipContentTemplate(new JS("getTaskTooltipContentTemplate"))
+    )
+</div>
+
+<script>
+    function getTaskTooltipContentTemplate(task, container) {
+        container[0].innerHTML = "";
+        const parentElement = document.getElementsByClassName('dx-gantt-task-edit-tooltip')[0];
+        parentElement.className = 'dx-gantt-task-edit-tooltip custom-task-edit-tooltip';
+        const timeEstimate = Math.abs(task.Start - task.End) / 36e5;
+        const timeLeft = Math.floor((100 - task.Progress) / 100 * timeEstimate);
+
+        return "<div class='custom-tooltip-title'>" + task.Title + "</div>"
+            + "<div class='custom-tooltip-row'>" + "<span> Estimate: </span>" + timeEstimate + "<span> hours </span>" + "</div>"
+            + "<div class='custom-tooltip-row'>" + "<span> Left: </span>" + timeLeft + "<span> hours </span>" + "</div>";
+    }
+
+    function getGanttInstance() {
+        return $("#gantt").dxGantt("instance");
+    }
+
+    function ganttScaleType_valueChanged(e) {
+        var ganttInstance = getGanttInstance();
+        ganttInstance.option("scaleType", e.value);
+    }
+
+    function ganttTitlePosition_valueChanged(e) {
+        var ganttInstance = getGanttInstance();
+        ganttInstance.option("taskTitlePosition", e.value);
+
+    }
+
+    function ganttShowResources_changed(e) {
+        var ganttInstance = getGanttInstance();
+        ganttInstance.option("showResources", e.value);
+    }
+
+    function ganttShowCustomTaskTooltip_changed(e) {
+        const parentELemnt = document.getElementsByClassName('dx-gantt-task-edit-tooltip')[0];
+        parentELemnt.className = 'dx-gantt-task-edit-tooltip';
+        var ganttInstance = getGanttInstance();
+        e.value ? ganttInstance.option("taskTooltipContentTemplate", getTaskTooltipContentTemplate)
+            : ganttInstance.option("taskTooltipContentTemplate", undefined);
+    }
+</script>

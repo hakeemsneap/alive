@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>KWSP BRANCHES</title>
+    <meta charset="UTF-8">
+    <title>KWSP BRANCHES</title>
+    <link rel="icon" href="https://angularjs.org/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <script src="../../../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbJvDp4XngM5pRb8J_PT_ydU0J_W5EaNw"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../../../node_modules/devextreme/dist/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../node_modules/devextreme/dist/css/dx.light.css" />
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script src="../../../../node_modules/devextreme/dist/js/dx.all.js"></script>
+    <script src="../../../../node_modules/lodash/lodash.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="index.js"></script>
+</head>
+<body class="dx-viewport">
+<div ng-app="DemoApp" ng-controller="DemoController" >
+<div id="header">
+    <div id="logo-container">
+
+        <img id="u321_img" class="img " src="KWSP_LOGO.png">
+        <div id="u321_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+        </div>
+
+    </div>
+</div>
+
+<div   id="u303" class="ax_default label">
+    <div id="u303_div" class=""></div>
+    <div id="u303_text" class="text ">
+        <p><span>Locator</span></p>
+    </div>
+</div>
+
+
+
+
+    <div   class="demo-container container-fluid col-md-12">
+
+
+        <div ng-if="masterRecords.length >= 69" id="gridContainer" dx-data-grid="gridOptions"  dx-item-alias="branch" class="col-md-12 offset-md-12">
+            <dxi-column
+                    data-field="lon"
+            calculate-sort-value="distanceSort">
+            </dxi-column>
+            <dxo-pager
+                    show-page-size-selector="true"
+                    allowed-page-sizes="[10, 20, 50]"
+                    show-navigation-buttons="true">
+            </dxo-pager>
+
+            <div data-options="dxTemplate: {name: 'detail'}">
+                <div class="employeeInfo">
+                    <div   id="map"></div>
+                    <img class="employeePhoto" ng-src="{{branch.data.Picture}}" />
+                    <table width="500" style="table-layout:fixed;">
+                        <tr>
+                            <td><p class="employeeNotes">Address     </p> </td><td width="5%">:<td> <p>{{branch.data.ads}}</p></td>
+                        </tr>
+                        <tr>
+                        <td> <p class="employeeNotes">Longtitude </p></td><td>:  </td> <td> <p>{{branch.data.lon}}</p></td>
+                        </tr>
+                        <tr>
+                        <td>
+                            <p class="employeeNotes">Latitude   </p> </td><td>: </td><td><p>{{branch.data.lat}}</p> </td></tr>
+
+                        <tr>
+                        <tr>
+                            <td><p class="employeeNotes">Distance From Your Location</p> </td><td>: </td><td><p  id="distance">{{DistanceLoc }}</p> </td></tr>
+                        <tr>
+                            <td> <p class="employeeNotes">Fax Number  </p> </td><td>:  </td><td><p>{{branch.data.fax}}</p></td></tr>
+                        <tr>
+                            <td><p class="employeeNotes">Operation Hour  </p></td><td>:  </td><td> <B>Pejabat</B></td></tr>
+                        <tr><td><p class="employeeNotes"></p></td><td>  </td><td> <p>Isnin – Jumaat: 8.00AM - 5.00PM</p></td></tr>
+                        <tr><td><p class="employeeNotes"></p></td><td>  </td><td> <b>Kaunter</b></td></tr>
+                        <tr><td><p class="employeeNotes"></p></td><td>  </td><td> <p>Isnin – Jumaat: 8.30AM - 4.30PM</p></td></tr>
+                        <tr><td><p class="employeeNotes"></p></td><td>  </td><td> <p>Rehat Jumaat: 12.15PM - 2.45PM</p></td></tr>
+                        <tr>
+                            <td> <p class="employeeNotes">Service  </p> </td><td>:  </td><td><p>Office, Kiosk, RAS</p></td></tr>
+                        <tr>
+
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <div id="u285" class="ax_default label a">
+        <div id="u285_div" class="a"></div>
+        <div id="u285_text" class="text a">
+            <p class="a" id="cache545"><span class="a" id="cache546">List of Offices</span></p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

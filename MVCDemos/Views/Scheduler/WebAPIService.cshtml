@@ -1,0 +1,27 @@
+﻿@(Html.DevExtreme().Scheduler()
+    .ID("scheduler")
+    .DataSource(d => d.WebApi()
+        .Controller("SchedulerData")
+        .Key("AppointmentId")
+        .DeleteAction(true)
+        .UpdateAction(true)
+        .InsertAction(true)
+    )
+    .TimeZone("America/Los_Angeles")
+    .DateSerializationFormat("yyyy-MM-ddTHH:mm:ssZ")
+    .RemoteFiltering(true)
+    .Views(new[] {
+        SchedulerViewType.Day,
+        SchedulerViewType.WorkWeek,
+        SchedulerViewType.Month
+    })
+    .CurrentView(SchedulerViewType.Day)
+    .CurrentDate(new DateTime(2021, 5, 25))
+    .StartDayHour(9)
+    .EndDayHour(19)
+    .Height(600)
+    .TextExpr("Text")
+    .StartDateExpr("StartDate")
+    .EndDateExpr("EndDate")
+    .AllDayExpr("AllDay")
+)

@@ -1,0 +1,38 @@
+﻿[
+  {
+    "Name": "please press enter",
+    "Equivalents": "dxDataGrid, dx-data-grid",
+    "Groups": [
+
+      {
+        "Name": "please press enter",
+        "Equivalents": "",
+        "Demos": [
+
+          {
+            "Title": "press enter to execute lauch KWSP ",
+            "Name": "Filtering",
+            "DocUrl": "Guide/Widgets/DataGrid/Filtering_and_Searching/",
+            "Widget": "DataGrid",
+            "MvcAdditionalFiles": [
+              "/Controllers/ApiControllers/DataGridFilteringController.cs",
+              "/Models/OrderWithDelivery.cs",
+              "/Models/SampleData/OrdersWithDelivery.cs"
+            ],
+            "DemoType": "Web"
+          }
+
+
+
+        ]
+      }
+
+
+
+
+
+
+    ]
+  }
+
+]

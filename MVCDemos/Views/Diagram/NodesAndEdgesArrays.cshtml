@@ -1,0 +1,34 @@
+﻿@model DevExtreme.MVC.Demos.Models.SampleData.FlowData
+
+@(Html.DevExtreme().Diagram()
+    .ID("diagram")
+    .Nodes(ns => ns
+        .DataSource(d => d
+            .Array()
+            .Key("ID")
+            .Data(Model.Nodes)
+        )
+        .KeyExpr("ID")
+        .TextExpr("Text")
+        .TypeExpr("Type")
+        .AutoLayout(al => al
+            .Type(DiagramDataLayoutType.Layered)
+        )
+    )
+    .Edges(ns => ns
+        .DataSource(d => d
+            .Array()
+            .Key("ID")
+            .Data(Model.Edges)
+        )
+        .KeyExpr("ID")
+        .FromExpr("FromID")
+        .ToExpr("ToID")
+        .TextExpr("Text")
+    )
+    .Toolbox(t => t
+        .Groups(g => g
+            .Add().Category(DiagramShapeCategory.General).Title("General")
+        )
+    )
+)

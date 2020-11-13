@@ -1,0 +1,21 @@
+﻿@model IEnumerable<DevExtreme.NETCore.Demos.Models.Appointment>
+
+@(Html.DevExtreme().Scheduler()
+    .ID("scheduler")
+    .DataSource(Model)
+    .TimeZone("America/Los_Angeles")
+    .Views(new[] {
+        SchedulerViewType.Day,
+        SchedulerViewType.Week,
+        SchedulerViewType.WorkWeek,
+        SchedulerViewType.Month
+    })
+    .CurrentView(SchedulerViewType.Day)
+    .CurrentDate(new DateTime(2021, 5, 27))
+    .StartDayHour(9)
+    .Height(600)
+    .TextExpr("Text")
+    .StartDateExpr("StartDate")
+    .EndDateExpr("EndDate")
+    .AllDayExpr("AllDay")
+)

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DevExtreme.MVC.Demos.Models.EmployeeAppointment>
+
+@(Html.DevExtreme().Scheduler()
+    .DataSource(Model)
+    .TimeZone("America/Los_Angeles")
+    .TextExpr("Text")
+    .StartDateExpr("StartDate")
+    .EndDateExpr("EndDate")
+    .Views(new[] {
+        SchedulerViewType.TimelineDay,
+        SchedulerViewType.TimelineWeek,
+        SchedulerViewType.TimelineWorkWeek,
+        SchedulerViewType.TimelineMonth
+    })
+    .CurrentView(SchedulerViewType.TimelineMonth)
+    .CurrentDate(new DateTime(2021, 2, 2))
+    .FirstDayOfWeek(FirstDayOfWeek.Sunday)
+    .StartDayHour(8)
+    .EndDayHour(20)
+    .CellDuration(60)
+    .Groups(new[] { "Priority" })
+    .Resources(res => {
+        res.Add()
+            .FieldExpr("OwnerId")
+            .AllowMultiple(true)
+            .Label("Owner")
+            .UseColorAsDefault(true)
+            .DataSource(new[] {
+                new { id = 1, text = "Samantha Bright", color = "#cb6bb2" },
+                new { id = 2, text = "John Heart", color = "#56ca85" },
+                new { id = 3, text = "Todd Hoffman", color = "#1e90ff" },
+                new { id = 4, text = "Sandra Johnson", color = "#ff9747" }
+            });
+
+        res.Add()
+            .FieldExpr("Priority")
+            .AllowMultiple(false)
+            .Label("Priority")
+            .DataSource(new[] {
+                new { id = "Low", text = "Low Priority", color = "#1e90ff" },
+                new { id = "High", text = "High Priority", color = "#ff9747" }
+            });
+    })
+    .Height(580)
+)

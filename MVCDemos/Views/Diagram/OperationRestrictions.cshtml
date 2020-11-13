@@ -1,0 +1,134 @@
+﻿@(Html.DevExtreme().Diagram()
+    .ID("diagram")
+    .OnRequestEditOperation("onRequestEditOperation")
+    .OnRequestLayoutUpdate("onRequestLayoutUpdate")
+    .CustomShapes(cs => {
+        cs.Add().Category("items").Type("root").BaseType("octagon").DefaultText("Development");
+        cs.Add().Category("items").Type("team").BaseType("ellipse").Title("Team").DefaultText("Team Name");
+        cs.Add().Category("items").Type("employee").BaseType("rectangle").Title("Employee").DefaultText("Employee Name");
+    })
+    .Nodes(ns => ns
+        .DataSource(d => d
+            .Array()
+            .Key("ID")
+            .Data(Model)
+        )
+        .KeyExpr("ID")
+        .TextExpr("Name")
+        .TypeExpr("Type")
+        .ParentKeyExpr("ParentID")
+        .AutoLayout(al => al
+            .Type(DiagramDataLayoutType.Tree)
+        )
+    )
+    .ContextToolbox(t => t
+        .ShapeIconsPerRow(2)
+        .Width(100)
+        .Shapes(new[] { "team", "employee" })
+    )
+    .Toolbox(t => t
+        .ShapeIconsPerRow(2)
+        .Groups(g => g
+            .Add().Title("Items").Shapes(new[] { "team", "employee" })
+        )
+    )
+    .PropertiesPanel(pp => pp
+        .Visibility(DiagramPanelVisibility.Disabled)
+    )
+)
+
+<script type="text/javascript">
+    function showToast(text) {
+        DevExpress.ui.notify({
+            position: { at: "top", my: "top", of: "#diagram", offset: "0 4" },
+            message: text,
+            type: "warning",
+            delayTime: 2000
+        });
+    }
+
+    function onRequestLayoutUpdate(e) {
+        for(var i = 0; i < e.changes.length; i++) {
+            if(e.changes[i].type === 'remove')
+                e.allowed = true;
+            else if(e.changes[i].data.ParentID !== undefined && e.changes[i].data.ParentID !== null)
+                e.allowed = true;
+        }
+    }
+
+    function onRequestEditOperation(e) {
+        var dataItem;
+        if(e.operation === "addShape") {
+            if(e.args.shape.type !== "employee" && e.args.shape.type !== "team") {
+                !e.updateUI && showToast("You can add only a 'Team' or 'Employee' shape.");
+                e.allowed = false;
+            }
+        }
+        else if(e.operation === "deleteShape") {
+            dataItem = e.args.shape && e.args.shape.dataItem;
+            if(dataItem && dataItem.Type === "root") {
+                !e.updateUI && showToast("You cannot delete the 'Development' shape.");
+                e.allowed = false;
+            }
+            if(dataItem && dataItem.Type === "team") {
+                var diagram = $("#diagram").dxDiagram("instance");
+                var children = diagram.getNodeDataSource().items().filter(function(item) {
+                    return item.ParentID === dataItem.ID;
+                });
+                if(children.length > 0) {
+                    !e.updateUI && showToast("You cannot delete a 'Team' shape that has a child shape.");
+                    e.allowed = false;
+                }
+            }
+        }
+        else if(e.operation === "resizeShape") {
+            if(e.args.newSize.width < 1 || e.args.newSize.height < 0.75) {
+                !e.updateUI && showToast("The shape size is too small.");
+                e.allowed = false;
+            }
+        }
+        else if(e.operation === "changeConnection") {
+            dataItem = e.args.newShape && e.args.newShape.dataItem;
+            if(dataItem && dataItem.Type === "root" && e.args.connectorPosition === "end") {
+                !e.updateUI && showToast("The 'Development' shape cannot have an incoming connection.");
+                e.allowed = false;
+            }
+            if(dataItem && dataItem.Type === "team" && e.args.connectorPosition === "end") {
+                if(dataItem && dataItem.ParentID !== undefined && dataItem.ParentID !== null) {
+                    !e.updateUI && showToast("A 'Team' shape can have only one incoming connection.");
+                    e.allowed = false;
+                }
+            }
+            if(dataItem && dataItem.Type === "employee") {
+                if(e.args.connectorPosition === "start")
+                    e.allowed = false;
+                if(e.args.connectorPosition === "end" && dataItem.ParentID !== undefined && dataItem.ParentID !== null) {
+                    !e.updateUI && showToast("An 'Employee' shape can have only one incoming connection.");
+                    e.allowed = false;
+                }
+            }
+        }
+        else if(e.operation === "changeConnectorPoints") {
+            if(e.args.newPoints.length > 2) {
+                !e.updateUI && showToast("You cannot add points to a connector.");
+                e.allowed = false;
+            }
+        }
+        else if(e.operation === "beforeChangeShapeText") {
+            dataItem = e.args.shape && e.args.shape.dataItem;
+            if(dataItem && dataItem.Type === "root") {
+                !e.updateUI && showToast("You cannot change the 'Development' shape's text.");
+                e.allowed = false;
+            }
+        }
+        else if(e.operation === "changeShapeText") {
+            if(e.args.text === "") {
+                !e.updateUI && showToast("A shape text cannot be empty.");
+                e.allowed = false;
+            }
+        }
+        else if(e.operation === "beforeChangeConnectorText") {
+            e.allowed = false;
+        }
+    }
+</script>

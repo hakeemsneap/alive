@@ -1,0 +1,9 @@
+
+
+How to run
+1) Disable same origin policy in Chrome refer (https://stackoverflow.com/questions/3102819/disable-same-origin-policy-in-chrome)
+2) navigate to app directory , open terminal then run npm install
+3) npm run launch-demo
+4)press enter 
+
+
