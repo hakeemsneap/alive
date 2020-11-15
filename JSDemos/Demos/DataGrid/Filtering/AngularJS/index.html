@@ -10,7 +10,6 @@
 
 
 
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -22,6 +21,8 @@
     <script src="../../../../node_modules/angular/angular.min.js"></script>
     <script src="../../../../node_modules/devextreme/dist/js/dx.all.js"></script>
     <script src="../../../../node_modules/lodash/lodash.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="index.js"></script>
@@ -52,21 +53,26 @@
     <div   class="demo-container container-fluid col-md-12">
 
 
+
+
         <div ng-if="masterRecords.length >= 69" id="gridContainer" dx-data-grid="gridOptions"  dx-item-alias="branch" class="col-md-12 offset-md-12">
-            <dxi-column
-                    data-field="lon"
-            calculate-sort-value="distanceSort">
-            </dxi-column>
+
             <dxo-pager
                     show-page-size-selector="true"
                     allowed-page-sizes="[10, 20, 50]"
                     show-navigation-buttons="true">
             </dxo-pager>
 
+
             <div data-options="dxTemplate: {name: 'detail'}">
-                <div class="employeeInfo">
-                    <div   id="map"></div>
-                    <img class="employeePhoto" ng-src="{{branch.data.Picture}}" />
+
+                <div id="information" class=" ax_default label a">
+                    <div id="u285_div" class="a"></div>
+                    <div id="information_text" class="text a">
+                        <p class="a" id="cache545"><span class="a" id="cache546">INFORMATION</span></p>
+                    </div>
+                </div>
+                <div class="employeeInfo col-md-9">
                     <table width="500" style="table-layout:fixed;">
                         <tr>
                             <td><p class="employeeNotes">Address     </p> </td><td width="5%">:<td> <p>{{branch.data.ads}}</p></td>
@@ -90,10 +96,19 @@
                         <tr><td><p class="employeeNotes"></p></td><td>  </td><td> <p>Isnin – Jumaat: 8.30AM - 4.30PM</p></td></tr>
                         <tr><td><p class="employeeNotes"></p></td><td>  </td><td> <p>Rehat Jumaat: 12.15PM - 2.45PM</p></td></tr>
                         <tr>
-                            <td> <p class="employeeNotes">Service  </p> </td><td>:  </td><td><p>Office, Kiosk, RAS</p></td></tr>
+                            <td> <p class="employeeNotes">Service  </p> </td><td>:  </td><td><p>Office, Kiosk, RAS</p></td>
+
+
+
+                        </tr>
                         <tr>
 
                     </table>
+                </div>
+                <div class="col-md-2 offset-md-2">
+                    <button
+" ng-click="googleMapEnable(branch.data.lat ,branch.data.lon)"  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">show map</button>
+
                 </div>
             </div>
 
@@ -101,6 +116,26 @@
         </div>
 
 
+    </div>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Location</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div  id="googleMap" style="width:100%;height:400px;"></div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="u285" class="ax_default label a">
