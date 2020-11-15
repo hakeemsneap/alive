@@ -15,14 +15,17 @@ npm run prepare-all
 ## JavaScript Demos
 
 ### Launch
+1.Disable same origin policy in Chrome.
 
-1. Prepare JavaScript demos for launch:
+Reference link : (https://stackoverflow.com/questions/3102819/disable-same-origin-policy-in-chrome)
+
+2. Prepare JavaScript demos for launch:
 
     ```
     npm run prepare-js
     ```
 
-1. Run the launch script:
+3. Run the launch script:
 
     ```
     npm run launch-demo
