@@ -45,6 +45,17 @@
     text-transform: none;
 }
 
+#information {
+    margin-top: -31px;
+    float: left;
+    border-width: 44px;
+    white-space: nowrap;
+    text-transform: none;
+    font-size: 21px;
+    top: 138px;
+    color: grey;
+}
+
 .div-table-body { height: 600px; overflow-x: auto; overflow-y: scroll; }
 
 #u303 {
@@ -146,7 +157,19 @@
     text-transform: none;
     font-size: 21px;
     top: 138px;
+
 }
+
+#information_text{
+    border-width: 44px;
+    white-space: nowrap;
+    text-transform: none;
+    font-size: 15px;
+    top: 100px;
+}
+
+
+
 #u285.a {
     left: 19px;
     top: 200px;

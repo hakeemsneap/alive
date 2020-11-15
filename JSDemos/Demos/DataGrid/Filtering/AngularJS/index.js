@@ -18,7 +18,7 @@ DemoApp.controller('DemoController', function DemoController($scope,$http,$q) {
 
 
         dataGrid;
-
+    $scope.isShowMap =false;
    getResult()
 
     
@@ -101,6 +101,43 @@ DemoApp.controller('DemoController', function DemoController($scope,$http,$q) {
                     },
 
                     showBorders: true,
+
+                    editing: {
+                        mode: "popup",
+                        allowUpdating: true,
+                        popup: {
+                            title: "more Info",
+                            showTitle: true,
+                            width: 700,
+                            height: 525,
+                            position: {
+                                my: "top",
+                                at: "top",
+                                of: window
+                            }
+                        },
+                        form: {
+                            items: [{
+                                itemType: "group",
+                                colCount: 2,
+                                colSpan: 2,
+                                items: ["FirstName", "LastName", "Prefix", "BirthDate", "Position", "HireDate", {
+                                    dataField: "Notes",
+                                    editorType: "dxTextArea",
+                                    colSpan: 2,
+                                    editorOptions: {
+                                        height: 100
+                                    }
+                                }]
+                            }, {
+                                itemType: "group",
+                                colCount: 2,
+                                colSpan: 2,
+                                caption: "Home Address",
+                                items: ["StateID", "Address"]
+                            }]
+                        }
+                    },
                     bindingOptions: {
                         filterRow: "filterRow",
                         headerFilter: "headerFilter",
@@ -279,12 +316,6 @@ DemoApp.controller('DemoController', function DemoController($scope,$http,$q) {
                             dataField: "lon",
                             customizeText: function(cellInfo) {
 
-
-
-
-
-
-
                                 var  row  = _.filter($scope.masterRecords, ['lon', cellInfo.value]);
 
                                 var lat1 = row[0].lat ;
@@ -320,15 +351,7 @@ DemoApp.controller('DemoController', function DemoController($scope,$http,$q) {
                                     if(dist < 1){dist= Math.round(dist/10) * 1000}  // round of to nearest point
                                     if(dist > 1) {dist  = Math.round(dist / 10); }   // round of to nearest point
 
-                                    // const map = new google.maps.Map(document.getElementById("map"), {
-                                    //     zoom: 4,
-                                    //     center: uluru,
-                                    // });
-                                    // // The marker, positioned at Uluru
-                                    // const marker = new google.maps.Marker({
-                                    //     position: uluru,
-                                    //     map: map,
-                                    // });
+
                                     $scope.DistanceLoc = dist + dist < 1? dist.toString()+' M':dist.toString()+' KM'
                                      distSort.push(dist);
 
@@ -377,6 +400,43 @@ DemoApp.controller('DemoController', function DemoController($scope,$http,$q) {
             disabled: "!filterRow.visible"
         }
     };
+
+    function initMap() {
+        // The location of Uluru
+        const uluru = { lat: -25.344, lng: 131.036 };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 4,
+            center: uluru,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+        });
+    }
+
+    $scope.googleMapEnable =function( lat,lon){
+        $scope.isShowMap = true;
+       var latitude = parseInt(lat)
+
+        var longtitude =  parseInt(lon)
+        var mapProp= {
+            center:new google.maps.LatLng(latitude,longtitude),
+            zoom:10,
+        };
+
+       getMap(mapProp)
+
+
+    }
+
+    function getMap(mapProp){
+        var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+        // The marker, positioned at location
+        const marker = new google.maps.Marker(mapProp);
+    }
 
     $scope.filterVisibleOptions = {
         text: "Filter Row",

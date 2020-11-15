@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa38acee-8b55-43e9-becc-7326957e2de8" name="Default Changelist" comment="" />
+    <list default="true" id="fa38acee-8b55-43e9-becc-7326957e2de8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/styles.css" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -26,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/JSDemos/menuMeta.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+              <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -34,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="272" column="49" lean-forward="true" selection-start-line="272" selection-start-column="49" selection-end-line="272" selection-end-column="49" />
+            <state relative-caret-position="153">
+              <caret line="425" column="19" selection-start-line="425" selection-start-column="19" selection-end-line="425" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -43,8 +48,23 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="78" lean-forward="true" selection-start-line="16" selection-start-column="78" selection-end-line="16" selection-end-column="78" />
+            <state relative-caret-position="490">
+              <caret line="108" column="28" selection-start-line="108" selection-start-column="28" selection-end-line="108" selection-end-column="28" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#5323#5330#1" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/styles.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="162" column="17" lean-forward="true" selection-start-line="162" selection-start-column="17" selection-end-line="162" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -60,10 +80,16 @@
       <find>dataRecords</find>
       <find>cellInfo</find>
       <find>header</find>
-      <find>map</find>
       <find>loadPanel</find>
       <find>address</find>
+      <find>button</find>
+      <find>exampleModalCenter</find>
+      <find>detail</find>
+      <find>map</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -72,8 +98,8 @@
         <option value="$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/data.js" />
         <option value="$PROJECT_DIR$/JSDemos/Demos/DataGrid/ExcelJSCellCustomization/AngularJS/index.html" />
         <option value="$PROJECT_DIR$/JSDemos/menuMeta.json" />
-        <option value="$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/styles.css" />
         <option value="$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/index.js" />
+        <option value="$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/styles.css" />
         <option value="$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/index.html" />
       </list>
     </option>
@@ -87,6 +113,7 @@
     <option name="width" value="1939" />
     <option name="height" value="1099" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -142,8 +169,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/mhtis-spa8" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -180,18 +208,18 @@
       <option name="presentableId" value="Default" />
       <updated>1605104667615</updated>
       <workItem from="1605104668946" duration="69664000" />
-      <workItem from="1605243445436" duration="7433000" />
+      <workItem from="1605243445436" duration="22171000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77097000" />
+    <option name="totallyTimeSpent" value="91835000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -206,7 +234,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.42492917" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.42492917" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -228,7 +256,6 @@
     <entry file="file://$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/Angular/app/app.component.ts" />
     <entry file="file://$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/data.js" />
     <entry file="file://$PROJECT_DIR$/JSDemos/menuMeta.json" />
-    <entry file="file://$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/styles.css" />
     <entry file="file://$PROJECT_DIR$/JSDemos/node_modules/lodash/_arrayFilter.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/lodash/lodash.min.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -240,21 +267,34 @@
     <entry file="file://$PROJECT_DIR$/JSDemos/menuMeta.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="272" column="49" lean-forward="true" selection-start-line="272" selection-start-column="49" selection-end-line="272" selection-end-column="49" />
+        <state relative-caret-position="153">
+          <caret line="425" column="19" selection-start-line="425" selection-start-column="19" selection-end-line="425" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="162" column="17" lean-forward="true" selection-start-line="162" selection-start-column="17" selection-end-line="162" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JSDemos/Demos/DataGrid/Filtering/AngularJS/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="78" lean-forward="true" selection-start-line="16" selection-start-column="78" selection-end-line="16" selection-end-column="78" />
+        <state relative-caret-position="490">
+          <caret line="108" column="28" selection-start-line="108" selection-start-column="28" selection-end-line="108" selection-end-column="28" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#5323#5330#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
