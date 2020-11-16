@@ -4,15 +4,7 @@ This repository contains technical DevExtreme demos for Angular, React, Vue, jQu
 
 To run the demos on your machine, clone this repository, run `npm install`, and follow the instructions below.
 
-## Prepare Demos for Development
 
-The following script prepares demos in all technologies for development. If you run it, you can skip step 1 in the other instructions and start at step 2.
- 
-```
-npm run prepare-all
-```
-
-## JavaScript Demos
 
 ### Launch
 1.Disable same origin policy in Chrome.
